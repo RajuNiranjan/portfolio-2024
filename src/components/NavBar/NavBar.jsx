@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import sideMenuUserImg from "@/assets/sideMenuUserImg.png";
 import Image from "next/image";
-// import NavTextAnimation from "./NavTextAnimation/NavTextAnimation";
 import { Menu } from "lucide-react";
 import {
   Sheet,
@@ -15,9 +14,11 @@ import {
 } from "@/components/ui/sheet";
 import GetInTouchButton from "../GetInTouch/GetInTouchButton";
 import NavTextAnimation from "./NavTextAnimation";
+import { Button } from "../ui/button";
 
 const NavBar = () => {
   const year = new Date().getFullYear();
+  const [open, setOpen] = useState(false);
 
   return (
     <nav className="bg-[#004736] text-white font-medium sticky top-0 shadow-md z-50">
@@ -42,16 +43,17 @@ const NavBar = () => {
           </ul>
 
           <div className="md:hidden">
-            <Sheet>
-              <SheetTrigger>
-                <Menu className="w-6 h-6 transition-all duration-300" />
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <Menu className="w-6 h-6 transition-all duration-300 cursor-pointer" />
               </SheetTrigger>
               <SheetContent
-                side="left"
-                className="p-0 flex flex-col justify-between md:hidden">
-                <SheetHeader>
+                side="right"
+                className="p-0 flex flex-col justify-between md:hidden"
+              >
+                <SheetHeader className="h-full">
                   <SheetTitle>
-                    <div className="flex w-full  items-center px-4  gap-2 mt-4">
+                    <div className="flex w-full   items-center px-4  gap-2 mt-4">
                       <Image
                         src={sideMenuUserImg}
                         alt=""
@@ -65,20 +67,30 @@ const NavBar = () => {
                       </div>
                     </div>
                   </SheetTitle>
-                  <SheetDescription>
-                    <div className="flex flex-col gap-10 w-full">
-                      <ul className="flex flex-col gap-5 items-end justify-center w-full">
-                        {["About me", "Resume", "Projects", "Get in Touch"].map(
-                          (text, i) => (
-                            <Link
+                  <SheetDescription className="h-full flex justify-between flex-col">
+                    <div className="flex justify-between flex-col gap-10 w-full ">
+                      <ul className="flex flex-col gap-5 w-full  ">
+                        {["About me", "Resume", "Projects"].map((text, i) => (
+                          <Link
+                            key={i}
+                            href={`#${text.toLowerCase().replace(" ", "-")}`}
+                            onClick={() => setOpen(false)}
+                          >
+                            <Button
+                              type="button"
                               key={i}
-                              href={`#${text.toLowerCase().replace(" ", "-")}`}>
-                              <li key={i}>{text}</li>
-                            </Link>
-                          )
-                        )}
-                        <GetInTouchButton />
-                      </ul>
+                              className=" w-[60%] rounded-r-full bg-transparent hover:bg-blue-50 text-black shadow-none flex justify-start items-start"
+                            >
+                              {text}
+                            </Button>
+                          </Link>
+                        ))}
+                      </ul>{" "}
+                      <GetInTouchButton />
+                      <div />
+                    </div>
+                    <div className="w-full p-4 ">
+                      <h1>&copy; 2023 Niranjan Raju. All rights reserved.</h1>
                     </div>
                   </SheetDescription>
                 </SheetHeader>

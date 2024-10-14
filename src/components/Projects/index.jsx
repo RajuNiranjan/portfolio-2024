@@ -1,7 +1,11 @@
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import TrendSet from "@/assets/projectImgs/trendset.png";
+import Mentorsklub from "@/assets/projectImgs/mentorsklub.png";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+// import TrendSet from "@/assets/projectImgs/trendset.png";
 
 const projects = [
   {
@@ -11,40 +15,39 @@ const projects = [
     technologies: [
       "React",
       "Next.js",
+      "Redux Toolkit",
       "Node.js",
       "MongoDB",
       "Express.js",
       "Tailwind CSS",
       "Shadcn/ui",
     ],
-    liveUrl: "https://example-ecommerce.com",
-    githubUrl: "https://github.com/yourusername/ecommerce-project",
-    imageUrl: "/placeholder.svg?height=200&width=300",
+    liveUrl: "https://trendsetnext.vercel.app/",
+    githubUrl: "https://github.com/RajuNiranjan/ecommerce_next_frontend",
+    imageUrl: TrendSet,
   },
   {
-    title: "Weather App",
+    title: "Mentors Klub",
     description:
-      "A responsive weather application that provides real-time weather data and forecasts.",
-    technologies: ["React", "OpenWeather API", "Tailwind CSS"],
-    liveUrl: "https://example-weather-app.com",
-    githubUrl: "https://github.com/yourusername/weather-app",
-    imageUrl: "/placeholder.svg?height=200&width=300",
+      "A Full Stack Schedule Management web application, for metors and mentees. where users can book their slots for meetings",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Materila-UI",
+      "Tailwind CSS",
+      "Node.js",
+      "Nest.js",
+      "MongoDB",
+    ],
+    liveUrl: "https://mentorsklub.vercel.app/",
+    githubUrl: "https://github.com/Abhisek0721/mentorsklub-frontend",
+    imageUrl: Mentorsklub,
   },
-  {
-    title: "Task Management Tool",
-    description:
-      "A collaborative task management application with real-time updates and team features.",
-    technologies: ["Vue.js", "Firebase", "Vuex"],
-    liveUrl: "https://example-task-manager.com",
-    githubUrl: "https://github.com/yourusername/task-manager",
-    imageUrl: "/placeholder.svg?height=200&width=300",
-  },
-  // Add more projects as needed
 ];
 
 export default function ProjectsSection() {
   return (
-    <section className="py-16 bg-[#f6eee1]  dark:bg-gray-900">
+    <div id="projects" className="py-16 bg-[#f6eee1]  dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">My Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -56,7 +59,7 @@ export default function ProjectsSection() {
               <Image
                 src={project.imageUrl}
                 alt={project.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover "
                 width={500}
                 height={500}
               />
@@ -89,7 +92,7 @@ export default function ProjectsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {/* <Github className="mr-2 h-4 w-4" /> */}
+                      <GitHubLogoIcon className="mr-2 h-4 w-4" />
                       Source Code
                     </a>
                   </Button>
@@ -99,6 +102,6 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -44,7 +44,8 @@ const BubbleText = ({ text }) => {
       className="text-xl tracking-wide"
       key={idx}
       ref={(el) => (refs.current[idx] = el)}
-      style={hoverTextStyle}>
+      style={hoverTextStyle}
+    >
       {child}
     </span>
   ));
@@ -76,7 +77,7 @@ const AboutMe = () => {
               innovate and transform digital experiences.
             </h1>
           </div>
-          <div className="flex   items-center gap-4 h-14 w-max">
+          <div className="flex items-center gap-4 md:h-14 w-max">
             <div className="flex items-center gap-2">
               <div className="h-10 w-10 text-blue-500 hover:h-14 hover:w-14 transition-all duration-300 cursor-pointer bg-white flex justify-center items-center rounded-full">
                 <Link href="https://www.linkedin.com/in/raju-niranjan/">
@@ -112,16 +113,20 @@ const AboutMe = () => {
                 width={300}
                 height={300}
               />
+              <Link href="#projects">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="hidden sm:block absolute top-28 text-xs font-medium bg-[#fdad16] p-2 rounded-full w-max left-[-30px] z-40"
+                >
+                  See Projects
+                </motion.button>
+              </Link>
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="hidden sm:block absolute top-28 text-xs font-medium bg-[#fdad16] p-2 rounded-full w-max left-[-30px] z-40">
-                <Link href="#work">See Projects</Link>
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="hidden sm:flex absolute bottom-28  w-max right-[-30px] z-40">
+                className="hidden sm:flex absolute bottom-28  w-max right-[-30px] z-40"
+              >
                 <GetInTouchButton />
               </motion.button>
               <div className="absolute h-40 w-40 bg-[#f6eee1] rounded-full top-14 left-[70px] lg:left-24" />
