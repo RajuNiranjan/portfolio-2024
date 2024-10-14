@@ -1,4 +1,5 @@
 import AboutMe from "@/components/aboutMe/AboutMe";
+import ProjectsSection from "@/components/Projects";
 import Resume from "@/components/resume";
 import React from "react";
 
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <AboutMe />
       <Resume />
+      <ProjectsSection />
     </div>
   );
 };
