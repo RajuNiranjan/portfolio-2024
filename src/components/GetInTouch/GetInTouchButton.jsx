@@ -14,28 +14,26 @@ import GetInTouch from "./GetInTouch";
 
 const GetInTouchButton = () => {
   return (
-    <div>
-      <Drawer>
-        <DrawerTrigger>
-          <Button className="rounded-full">Get In Touch</Button>
-        </DrawerTrigger>
+    <Drawer>
+      <DrawerTrigger>
+        <Button className="rounded-full">Get In Touch</Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+        </DrawerHeader>
         <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-            <DrawerDescription>This action cannot be undone.</DrawerDescription>
-          </DrawerHeader>
-          <DrawerContent>
-            <GetInTouch />
-          </DrawerContent>
-          <DrawerFooter>
-            <Button>Submit</Button>
-            <DrawerClose>
-              <Button variant="outline">Cancel</Button>
-            </DrawerClose>
-          </DrawerFooter>
+          <GetInTouch />
         </DrawerContent>
-      </Drawer>
-    </div>
+        <DrawerFooter>
+          <Button>Submit</Button>
+          <DrawerClose>
+            <Button variant="outline">Cancel</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 };
 

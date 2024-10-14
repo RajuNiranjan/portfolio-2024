@@ -94,11 +94,6 @@ const NavBar = () => {
                     </div>
                   </SheetDescription>
                 </SheetHeader>
-                <SheetFooter>
-                  <div className="flex justify-center items-center py-4">
-                    <small>&copy; {year}. All rights reserved.</small>
-                  </div>
-                </SheetFooter>
               </SheetContent>
             </Sheet>
           </div>
